@@ -19,3 +19,8 @@ A pangram is a sentence using every letter of the alphabet at least once. It is 
 For this exercise, a sentence is a pangram if it contains each of the 26 letters in the English alphabet.
 '''
 
+def is_pangram(sentence):
+    abc=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    if not sentence or sentence.isspace(): 
+        return False
+    return set(abc).issubset(sentence.lower())
