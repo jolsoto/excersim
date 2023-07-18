@@ -15,19 +15,15 @@ Read more about Pig Latin on Wikipedia.
 
 def translate(text):
     vowels={'a','e','i','o','u'}
-    con_sounds={'qu','st','ch','th','thr','rh'}
-    vowel_sounds={'squ','sch'}
+    con_sounds={'qu','st','ch','th','thr','rh','squ','sch'}
     result=[]
     for word in text.split(' '):
         if word[0] in vowels or word[:2] in ['xr','yt']:
             result.append(word+'ay')
-        elif word[0] not in vowels:
-            if word[0:3] in vowel_sounds:
-                result.append(word[3:]+word[0:3]+'ay')
-            elif word[0:3] in con_sounds:
-                result.append(word[3:]+word[0:3]+'ay')
-            elif word[0:2] in con_sounds:
-                result.append(word[2:]+word[0:2]+'ay')
-            else:
-                result.append(word[1:]+word[0]+'ay')
+        elif word[0:3] in con_sounds:
+            result.append(word[3:]+word[0:3]+'ay')
+        elif word[0:2] in con_sounds:
+            result.append(word[2:]+word[0:2]+'ay')
+        else:
+            result.append(word[1:]+word[0]+'ay')
     return (' '.join(result[:]))
