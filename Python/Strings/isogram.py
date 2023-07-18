@@ -13,3 +13,15 @@ six-year-old
 The word isograms, however, is not an isogram, because the s repeats.
 '''
 
+def is_isogram(string):
+    isogram=string.lower()
+    isogram=isogram.replace('-',' ')
+    isogram=isogram.replace(' ','')
+    if not string or string.isspace(): 
+        result= True
+    for letter in isogram:
+        if isogram.count(letter)>1:
+            result= False
+            break
+        result= True
+    return result
