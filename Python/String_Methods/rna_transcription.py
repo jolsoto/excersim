@@ -30,3 +30,11 @@ Note
 If you want to look at how the inputs and outputs are structured, take a look at the examples in the test suite.
 '''
 
+def to_rna(dna_strand):
+    dict={'G':'C', 'C':'G', 'T':'A','A':'U'}
+    result=''
+    for letter in dna_strand:
+        for x in dict:
+            if letter==x:
+                result+=dict[x]
+    return result
