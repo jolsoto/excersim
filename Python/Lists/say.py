@@ -55,3 +55,34 @@ raise ValueError("input out of range")
 raise ValueError("input out of range")
 '''
 
+ones = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
+        'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+
+def say(number):
+    if number < 0 or number > 999999999999:
+        raise ValueError('input out of range')
+
+    if number == 0:
+        return 'zero'
+
+    def say_small(n):
+        if n >= 100:
+            return ones[n // 100] + ' hundred ' + say_small(n % 100)
+        elif n >= 20:
+            return tens[n // 10] + ('-' + ones[n % 10] if n % 10 != 0 else '')
+        else:
+            return ones[n]
+
+    result = ''
+    if number >= 1000000000:
+        result += say_small(number // 1000000000) + ' billion '
+        number %= 1000000000
+    if number >= 1000000:
+        result += say_small(number // 1000000) + ' million '
+        number %= 1000000
+    if number >= 1000:
+        result += say_small(number // 1000) + ' thousand '
+        number %= 1000
+    result += say_small(number)
+    return result.strip()
