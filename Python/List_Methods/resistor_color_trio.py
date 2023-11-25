@@ -61,7 +61,6 @@ def label(colors):
     zeros=10**value3
 
     total=main_value*zeros
-    print(total)
 
     if total < 1000:
         unit = 'ohms'
