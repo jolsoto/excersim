@@ -24,14 +24,12 @@ Grey: 8
 White: 9
 From the example above: brown-green should return 15 brown-green-violet should return 15 too, ignoring the third color.
 '''
+
 color_list={'black':0,'brown':1,'red': 2, 'orange': 3, 'yellow': 4, 'green': 5, 'blue': 6,'violet': 7,'grey': 8,'white': 9}
 def value(colors):
-    result=''
-    count=0;
-    for color in colors:
-        if color in color_list:
-            if count<2:
-                print(color_list[color])
-                result+=str(color_list[color])
-                count+=1
-    return int(result)
+    value1=color_list[colors[0]]
+    value2=color_list[colors[1]]
+
+    main_value=int(str(value1)+str(value2))
+    
+    return main_value
